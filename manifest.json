@@ -3,8 +3,7 @@
   "name": "Password Generator",
   "version": "1.0",
   "description": "Password Generator is a simple and efficient Chrome extension that helps you create secure, random passwords with just one click.",
-  "permissions": [
-  ],
+  "permissions": [],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
