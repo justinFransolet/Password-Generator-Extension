@@ -11,13 +11,12 @@
     <h1>Password Generator</h1>
     <div class="options">
         <label>
-            Length:
-            <input type="number" id="length" value="12" min="4" max="64" />
+            Length: <span id="lengthValue">20</span>
+            <input type="range" id="length" value="20" min="1" max="150" />
         </label>
         <label><input type="checkbox" id="uppercase" checked> Uppercase</label>
-        <label><input type="checkbox" id="lowercase" checked> Lowercase</label>
         <label><input type="checkbox" id="numbers" checked> Numbers</label>
-        <label><input type="checkbox" id="symbols"> Symbols</label>
+        <label><input type="checkbox" id="symbols" checked> Symbols</label>
     </div>
     <p id="resultStatus"></p>
     <button id="copy">Copy to clipboard</button>

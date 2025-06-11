@@ -1,12 +1,11 @@
-const generatePassword = (length, useUppercase, useLowercase, useNumbers, useSymbols) =>{
+const generatePassword = (length, useUppercase, useNumbers, useSymbols) =>{
     const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const lower = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
     const symbols = '!@#$%^&*()-_=+[]{};:,.<>?';
 
-    let chars = '';
+    let chars = lower;
     if (useUppercase) chars += upper;
-    if (useLowercase) chars += lower;
     if (useNumbers) chars += numbers;
     if (useSymbols) chars += symbols;
 
@@ -23,11 +22,10 @@ const generatePassword = (length, useUppercase, useLowercase, useNumbers, useSym
 document.getElementById('copy').addEventListener('click', () => {
     const length = parseInt(document.getElementById('length').value);
     const useUppercase = document.getElementById('uppercase').checked;
-    const useLowercase = document.getElementById('lowercase').checked;
     const useNumbers = document.getElementById('numbers').checked;
     const useSymbols = document.getElementById('symbols').checked;
 
-    const password = generatePassword(length, useUppercase, useLowercase, useNumbers, useSymbols);
+    const password = generatePassword(length, useUppercase, useNumbers, useSymbols);
     navigator.clipboard.writeText(password)
         .then(() => {
             const result = document.getElementById('resultStatus');
@@ -39,4 +37,11 @@ document.getElementById('copy').addEventListener('click', () => {
             result.textContent = 'Failed to copy password.';
             result.classList.add('error');
         });
+});
+
+const lengthInput = document.getElementById('length');
+const lengthValue = document.getElementById('lengthValue');
+
+lengthInput.addEventListener('input', () => {
+    lengthValue.textContent = lengthInput.value;
 });
